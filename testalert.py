@@ -1,8 +1,13 @@
+import os
 import requests
 
-WHATSAPP_TOKEN = "EAGkUCKxbFXUBS9nhq7ZBQLsupgjDHZBFDRimY1XZCa6pQfrw3wL5JzzWwaErI3iF2C1OxtRaxWYcZB7R1h5qC13tbuZABCaTyCmeXOZBtJvxkNcHXXZCBdkKftqeZAKVsPIxAPXuC6eOPvfJLhCBMF4UYGgY1a6wwbRV8WZAp5S8W2PHaEmjnuAeYiZBbn6qk0We8ab3wdL838jbCQn5hzitQbPdAPbQxZBPWtfCk8kodgUZAIfSIo86ZBZCZCzugvXvVIj5k3F6HoptTt7p4YpM2YVjYSQeu0I"
+# GitHub Actions Secret ఉంటే దాని నుండి తీసుకుంటుంది, లేదంటే కింద ఉన్న టోకెన్ వాడుతుంది
+WHATSAPP_TOKEN = os.getenv(
+    "WHATSAPP_TOKEN",
+    "EAGkUCKxbFXUBS9nhq7ZBQLsupgjDHZBFDRimY1XZCa6pQfrw3wL5JzzWwaErI3iF2C1OxtRaxWYcZB7R1h5qC13tbuZABCaTyCmeXOZBtJvxkNcHXXZCBdkKftqeZAKVsPIxAPXuC6eOPvfJLhCBMF4UYGgY1a6wwbRV8WZAp5S8W2PHaEmjnuAeYiZBbn6qk0We8ab3wdL838jbCQn5hzitQbPdAPbQxZBPWtfCk8kodgUZAIfSIo86ZBZCZCzugvXvVIj5k3F6HoptTt7p4YpM2YVjYSQeu0I"
+)
 PHONE_NUMBER_ID = "1311829505357152"
-RECIPIENT_PHONE = "919949934574"  # మీ వెరిఫైడ్ మొబైల్ నంబర్
+RECIPIENT_PHONE = "919949934574"
 
 def fetch_and_send_soil_report(lat=14.4426, lon=79.9865):
     """శాటిలైట్ API నుంచి లైవ్ నేల తేమ వివరాలు తీసుకుని వాట్సాప్‌కి పంపడం"""
