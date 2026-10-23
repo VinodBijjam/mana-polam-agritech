@@ -1,0 +1,28 @@
+name: Daily Mana Polam WhatsApp Alert
+
+on:
+  workflow_dispatch:
+  schedule:
+    - cron: '30 1 * * *'
+
+jobs:
+  send_alert:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout Code
+        uses: actions/checkout@v4
+
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+
+      - name: Install Dependencies
+        run: |
+          pip install requests
+
+      - name: Run Soil Alert
+        env:
+          WHATSAPP_TOKEN: ${{ secrets.WHATSAPP_TOKEN }}
+        run: |
+          python testalert.py
