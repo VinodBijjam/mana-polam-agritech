@@ -1,0 +1,7 @@
+send_whatsapp.py
+farmers_db.json
+outputs/
+*.mp3
+*.png
+__pycache__/
+.env
